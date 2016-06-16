@@ -3,6 +3,7 @@ package com.codetank.beginnerprogrammers.signup;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,19 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.codetank.beginnerprogrammers.R;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+
+import java.util.Map;
 
 /**
  * Created by manny on 6/15/16.
  */
 public class SignUpFragment extends Fragment implements View.OnClickListener {
+
+    public static final String FIRE_BASE_URL = "https://bprogrammers.firebaseio.com/";
+    public static final String USERS_ROUTE = "users/";
+    public Firebase mFirebaseRef;
 
     private EditText userName;
     private EditText userEmail;
@@ -27,6 +36,8 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mFirebaseRef = new Firebase(FIRE_BASE_URL + USERS_ROUTE);
     }
 
     @Nullable
@@ -50,7 +61,25 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
             return;
         }
 
-        //TODO: Create user functionality
+        //Create user functionality
+        mFirebaseRef.createUser(userEmail.getText().toString(), userPassword.getText().toString(), new Firebase.ValueResultHandler<Map<String, Object>>(){
+
+            @Override
+            public void onSuccess(Map<String, Object> result) {
+                Log.d("flow", "Successfully created user account with uid: " + result.get("uid"));
+
+                User user = new User(userEmail.getText().toString(), userName.getText().toString());
+                String uid = (String) result.get("uid");
+
+                mFirebaseRef.child(uid).setValue(user);
+                clearSignUpText();
+            }
+
+            @Override
+            public void onError(FirebaseError firebaseError) {
+                Log.d("flow", "ERROR: " + firebaseError.toString() + " " + firebaseError.getMessage() + " " + firebaseError.getDetails());
+            }
+        });
     }
 
     public boolean loginCredentialsValidated(){
