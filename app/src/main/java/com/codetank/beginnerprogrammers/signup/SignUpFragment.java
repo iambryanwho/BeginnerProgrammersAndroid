@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.codetank.beginnerprogrammers.R;
+import com.codetank.beginnerprogrammers.data.User;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
