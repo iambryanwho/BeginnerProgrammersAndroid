@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.codetank.beginnerprogrammers.LoginActivity;
 import com.codetank.beginnerprogrammers.R;
+import com.codetank.beginnerprogrammers.signup.SignUpFragment;
 
 /**
  * Created by manny on 6/15/16.
@@ -90,7 +92,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                 login();
                 break;
             case R.id.signUpBtn:
-                //sign up fragment
+                LoginActivity activity = (LoginActivity) getActivity();
+                activity.replaceFragment(new SignUpFragment());
         }
     }
 }
