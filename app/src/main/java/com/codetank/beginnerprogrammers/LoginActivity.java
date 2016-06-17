@@ -1,11 +1,11 @@
 package com.codetank.beginnerprogrammers;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.codetank.beginnerprogrammers.home.HomeFragment;
 import com.codetank.beginnerprogrammers.login.LoginFragment;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.On
                 getSupportFragmentManager().beginTransaction().add(R.id.container, new LoginFragment(), null).commit();
             }
         }else{
-            //TODO: add replaceFragment(new HomeFragment());
+            replaceFragment(new HomeFragment());
         }
     }
 
@@ -57,7 +57,10 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.On
         mFireBaseRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
-                //homeScreen();
+                //TODO: homeScreen();
+
+                //for testing purposes, mus create home activity
+                replaceFragment(new HomeFragment());
             }
 
             @Override
@@ -69,6 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.On
 
     public void homeScreen(){
         //TODO: home activity
+
     }
 
     private boolean isExpired(AuthData authData){
