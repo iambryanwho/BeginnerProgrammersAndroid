@@ -1,8 +1,10 @@
 package com.codetank.beginnerprogrammers.login;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.codetank.beginnerprogrammers.LoginActivity;
 import com.codetank.beginnerprogrammers.R;
+import com.codetank.beginnerprogrammers.signup.SignUpFragment;
 
 /**
  * Created by manny on 6/15/16.
@@ -22,8 +26,25 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     private TextView forgotPassword;
     private Button loginBtn;
     private Button signUpBtn;
+    private OnLoginListener mListener;
 
     public LoginFragment(){}
+
+    public interface OnLoginListener{
+        void onLogin(String email, String password);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try{
+            mListener = (OnLoginListener) getActivity();
+        }catch (ClassCastException e){
+            throw new ClassCastException(getActivity().toString()
+                    + " must implement OnFragment");
+        }
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +70,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
-    public void login(){}
+    public void login(){
+
+        if(userEmail.length() == 0 || userPassword.length() == 0){
+            return;
+        }
+
+        String email = userEmail.getText().toString();
+        String password = userPassword.getText().toString();
+
+        mListener.onLogin(email, password);
+    }
 
     @Override
     public void onClick(View v) {
@@ -58,10 +89,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                 //forgot Fragment
                 break;
             case R.id.loginBtn:
-                //login();
+                login();
                 break;
             case R.id.signUpBtn:
-                //sign up fragment
+                LoginActivity activity = (LoginActivity) getActivity();
+                activity.replaceFragment(new SignUpFragment());
         }
     }
 }
