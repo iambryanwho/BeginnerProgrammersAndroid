@@ -79,8 +79,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         String email = userEmail.getText().toString();
         String password = userPassword.getText().toString();
+        userEmail.setError(null);
+        userPassword.setError(null);
 
         mListener.onLogin(email, password);
+
     }
 
     @Override

@@ -12,28 +12,39 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.codetank.beginnerprogrammers.LoginActivity;
+
 import com.codetank.beginnerprogrammers.R;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 
 /**
  * Created by jrperiod on 6/15/16.
  */
 public class ForgotFragment extends Fragment {
 
+    public static final String FIRE_BASE_URL = "https://bpgo.firebaseio.com/";
+    public static final String USERS_ROUTE = "users/";
+
+    Firebase mFireBaseRef;
+
     private EditText userEmail;
     private Button resetBtn;
-    private TextView forgotpassword;
+
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)  {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View layout = inflater.inflate(R.layout.forgot_fragment, container, false);
 
-        View view = inflater.inflate(R.layout.forgot_fragment, container, false);
+        userEmail = (EditText) layout.findViewById(R.id.userEmailET);
+        resetBtn = (Button) layout.findViewById(R.id.resetBtn);
 
-        userEmail = (EditText) view.findViewById(R.id.userEmailET);
-        resetBtn = (Button) view.findViewById(R.id.resetBtn);
+        //resetBtn.setOnClickListener(this);
 
-
-        return view;
+        return layout;
     }
 
-}
+
+    }
+
+
