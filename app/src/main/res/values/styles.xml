@@ -12,5 +12,9 @@
         <item name="colorControlNormal">#dadada</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
+    <style name="forgotEmailText" parent="Widget.AppCompat.EditText">
+        <item name="colorControlNormal">#dadada</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
 
 </resources>

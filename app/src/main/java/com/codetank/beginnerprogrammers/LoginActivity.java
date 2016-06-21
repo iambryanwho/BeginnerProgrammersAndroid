@@ -74,6 +74,9 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.On
         //TODO: home activity
 
     }
+   // public void textTouched(Fragment fragment) {
+        //getSupportFragmentManager().beginTransaction().replace(R.replace(R.id.container, fragment, null).addToBackStack(nul))
+    //}
 
     private boolean isExpired(AuthData authData){
         return (System.currentTimeMillis()/ 1000) >= authData.getExpires();

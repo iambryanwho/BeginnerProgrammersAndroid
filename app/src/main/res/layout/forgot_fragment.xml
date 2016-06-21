@@ -57,6 +57,7 @@
     android:layout_marginRight="40dp">
     <EditText
         android:hint="email"
+        android:theme="@style/forgotEmailText"
         android:textColorHint="#9c9c9c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,10 +67,10 @@
         <Button
             android:id="@+id/resetBtn"
             android:layout_marginTop="25dp"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Reset Password"
-            android:textColor="@color/white"
-            android:background="@color/colorPrimary"/>
+            android:background="@drawable/reset_btn_rounded_corners"/>
 </LinearLayout>
 </LinearLayout>

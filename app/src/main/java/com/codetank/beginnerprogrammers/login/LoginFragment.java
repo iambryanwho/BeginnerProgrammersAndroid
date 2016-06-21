@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.codetank.beginnerprogrammers.Forgot.ForgotFragment;
 import com.codetank.beginnerprogrammers.LoginActivity;
 import com.codetank.beginnerprogrammers.R;
 import com.codetank.beginnerprogrammers.signup.SignUpFragment;
@@ -86,14 +87,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.forgotPassword:
-                //forgot Fragment
+                LoginActivity activity = (LoginActivity) getActivity();
+                activity.replaceFragment(new ForgotFragment());
+                Log.d("Flow", "testing forgot");
                 break;
             case R.id.loginBtn:
                 login();
                 break;
             case R.id.signUpBtn:
-                LoginActivity activity = (LoginActivity) getActivity();
-                activity.replaceFragment(new SignUpFragment());
+                //LoginActivity activity = (LoginActivity) getActivity();
+                //activity.replaceFragment(new SignUpFragment());
         }
     }
 }
