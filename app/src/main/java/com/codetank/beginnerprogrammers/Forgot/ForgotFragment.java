@@ -19,7 +19,7 @@ import com.firebase.client.FirebaseError;
  */
 public class ForgotFragment extends Fragment implements View.OnClickListener{
 
-    public static final String FIRE_BASE_URL = "https://bpgo.firebaseio.com/";
+    public static final String FIRE_BASE_URL = "https://bprogrammers.firebaseio.com/";
     public static final String USERS_ROUTE = "users/";
 
     Firebase mFireBaseRef;
@@ -77,10 +77,6 @@ public class ForgotFragment extends Fragment implements View.OnClickListener{
         return  isValid;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
     @Override
     public void onClick(View v) {
