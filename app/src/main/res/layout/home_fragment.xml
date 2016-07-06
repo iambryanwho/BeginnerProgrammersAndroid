@@ -1,28 +1,163 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/homeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="#dbdbdb"
+    android:weightSum="3">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v7.widget.CardView
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <TextView
+        card_view:cardBackgroundColor="#f9f9f9"
+        card_view:cardCornerRadius="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp"
+                android:id="@+id/htmlFiveLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#d2d2d2">
+                <ImageView
+                    android:background="@drawable/HTML_5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:layout_toRightOf="@+id/htmlFiveLogo"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Full Stack"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Development"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 Month Part time bootcamp"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="#f9f9f9"
+        card_view:cardCornerRadius="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp"
+                android:id="@+id/androidRobot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#d2d2d2">
+                <ImageView
+                    android:background="@drawable/android_robot"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:layout_toRightOf="@+id/androidRobot"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Android Development"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bootcamp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 Month Part time bootcamp"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="#f9f9f9"
+        card_view:cardCornerRadius="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Home"/>
-        <TextView
-            android:id="@+id/homeUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="User"/>
-    </LinearLayout>
-
+            android:layout_margin="5dp">
+            <ImageView
+                android:id="@+id/hackerHoursImg"
+                android:background="@drawable/hacker_hours"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"/>
+            <TextView
+                android:id="@+id/hacker"
+                android:layout_below="@+id/hackerHoursImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hacker Hours"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_below="@+id/hacker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="10dp"
+                android:text="Every Sunday for a few hours"
+                android:textSize="15sp"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
